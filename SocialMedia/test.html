@@ -1,0 +1,51 @@
+<html>
+
+    <div id = "tweets"></div>
+    
+    <script>
+        
+        mydiv = document.getElementById("tweets")
+    
+    
+        data = {"tweets":{"m1SZOkQ93xR8IoOcxtWnaF0nibq0":{"-LWY3zmdKbRcdefIm8_x":{"tweet":"Hello ?"}},"vUvDYGiZxcaweMf5qWeMTeAXfYl0":{"-LWS4PcSY-vBweXXrSXA":{"tweet":"this is an example"},"-LWSC4Ckltenibn6jpZf":{"tweet":"hi"},"-LWSCQZQ9fe-2VRFBCUE":{"tweet":"swank\n"},"-LWY58OxulaANTFnzODh":{"tweet":"Hi David"}}},"users":{"m1SZOkQ93xR8IoOcxtWnaF0nibq0":{"email":"dcrawford@ucc.on.ca","profile_picture":"https://lh3.googleusercontent.com/-rI-udG5swZA/AAAAAAAAAAI/AAAAAAAAI2w/V7AqUC9xr24/photo.jpg","username":"David Crawford"},"vUvDYGiZxcaweMf5qWeMTeAXfYl0":{"email":"mhoel@ucc.on.ca","profile_picture":"https://lh6.googleusercontent.com/-l2NF69h4UG4/AAAAAAAAAAI/AAAAAAAACzw/V1pCOyunEko/photo.jpg","username":"Mark Hoel"}}}
+  
+        var myhtml = "<table>";
+        var keys = Object.keys(data.tweets) ; 
+        console.log(keys);
+        for (key of keys) {
+            var tweets = Object.keys(data.tweets[key]);
+            console.log(tweets);
+            for (tweet of tweets) {
+                myhtml = myhtml + "<tr id = 'a'><td><img src='" + data.users[key].profile_picture + "' width='75' title = '" + data.users[key].username + "'></td><td id = 't_text'>" + data.tweets[key][tweet].tweet + "</td></tr>";
+            }
+        }
+        
+        myhtml = myhtml + "</table>"
+        mydiv.innerHTML = myhtml;
+        
+        
+    </script>
+    
+    <style>
+    
+        #t_text {
+            
+            font-family:sans-serif;
+            color: slateblue;
+            text-decoration:none;
+            
+            
+        }
+        
+        #a:hover {
+            background-color: lightgray;
+            border: 25px;
+            
+        }
+    
+    
+    
+    </style>
+
+
+</html>
